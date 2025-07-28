@@ -6,6 +6,7 @@ This project demonstrates a simplified **Canary Deployment** architecture using 
 
 ---
 
+
 ## 📁 Project Structure
 
 canary_project/
@@ -20,3 +21,18 @@ canary_project/
 ├── curl.py # Simulates traffic and executes full canary testing flow
 ├── requirements.txt # Required Python packages
 └── README.md # Project description and instructions
+
+
+
+---
+
+## ⚙️ Installation
+
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/audrey-siqueira/canary_project.git
+   cd canary_project
+
+2. Install required packages:
+   ```bash
+   pip install -r requirements.txt
