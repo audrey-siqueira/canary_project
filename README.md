@@ -46,8 +46,8 @@ canary_project/
    python train.py
     
 4. Start the API
-   The API will be live at: http://0.0.0.0:8000
    ```bash
+   #The API will be live at: http://0.0.0.0:8000
    python main.py
 
 ## 🔁 Canary Testing Flow
@@ -56,20 +56,20 @@ canary_project/
    ```bash
    python curl.py
 
-This script will:
-
-1) Deploy the canary model (/admin/deploy-canary)
-
-2) Send 300 inference requests (/predict)
-
-3) Perform statistical health check (/admin/check-canary-health)
-
-4) Toggle slowdown (/admin/toggle-slowdown) - ARTIFICIAL DELAY
-
-5) Send more traffic
-
-6) Perform another health check
-
-7) Roll back the canary if needed
-
-8) Confirm rollback with a new prediction
+   #This script will:
+   
+   #1) Deploy the canary model (/admin/deploy-canary)
+   
+   #2) Send 300 inference requests (/predict)
+   
+   #3) Perform statistical health check (/admin/check-canary-health)
+   
+   #4) Toggle slowdown (/admin/toggle-slowdown) - ARTIFICIAL DELAY
+   
+   #5) Send more traffic
+   
+   #6) Perform another health check
+   
+   #7) Roll back the canary if needed
+   
+   #8) Confirm rollback with a new prediction
