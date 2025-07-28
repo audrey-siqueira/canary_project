@@ -1,6 +1,31 @@
 # Canary Deployment API with FastAPI
 
-This project demonstrates a simplified **Canary Deployment** architecture using **FastAPI** for model serving, latency monitoring, and statistical validation via Welch's t-test. A stable model (`model_v1`) is deployed by default, and a canary model (`model_v2`) can be deployed and evaluated in production before promotion.
+## 🔁 Canary Deployment Flow (Step-by-step)
+
+1. **Startup:**
+   - `main.py` loads the **stable model** (`model_v1.joblib`).
+   - All predictions use this model by default.
+
+2. **Deploy Canary:**
+   - Use the endpoint `/admin/deploy-canary` to load `model_v2.joblib` into memory.
+   - After deployment, **10% of predictions** are randomly routed to the canary.
+
+3. **Generate Traffic:**
+   - Send prediction requests via `/predict`.
+   - Use `curl.py` or manual `curl` commands to simulate traffic.
+
+4. **Simulate Slowdown (Optional):**
+   - Use `/admin/toggle-slowdown` to introduce artificial delay in the canary model.
+
+5. **Check Health:**
+   - Call `/admin/check-canary-health`.
+   - The server compares latencies using **Welch's t-test**.
+   - If the canary is significantly slower, an alert is triggered.
+
+6. **Promote or Rollback:**
+   - If performance is acceptable, call `/admin/promote-canary`.
+   - If degraded, call `/admin/rollback-canary`.
+
 
 ---
 
