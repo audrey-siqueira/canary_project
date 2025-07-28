@@ -1,5 +1,8 @@
 # Canary Deployment API with FastAPI
 
+![Architecture](image.png)
+
+
 ## 🔁 Canary Deployment Flow (Step-by-step)
 
 1. **Startup:**
