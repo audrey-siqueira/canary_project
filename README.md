@@ -1,5 +1,3 @@
-# canary_project
-
 # Canary Deployment API with FastAPI
 
 This project demonstrates a simplified **Canary Deployment** architecture using **FastAPI** for model serving, latency monitoring, and statistical validation via Welch's t-test. A stable model (`model_v1`) is deployed by default, and a canary model (`model_v2`) can be deployed and evaluated in production before promotion.
