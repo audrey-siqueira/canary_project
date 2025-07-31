@@ -174,3 +174,21 @@ async def toggle_slowdown():
     simulate_slowdown = not simulate_slowdown
     return { "simulate_slowdown": simulate_slowdown,
              "message": "Slowdown simulation " + ("enabled" if simulate_slowdown else "disabled")}
+
+
+
+
+@app.get("/admin/power-analysis")
+async def power_analysis(
+    effect_size: float = Query(0.666, description="Effect size (delta / std)"),
+    alpha: float = Query(0.05, description="Significance level"),
+    power: float = Query(0.8, description="Power of the test")
+):
+    analysis = TTestIndPower()
+    sample_size = analysis.solve_power(effect_size=effect_size, alpha=alpha, power=power, ratio=1.0)
+    return {
+        "effect_size": effect_size,
+        "alpha": alpha,
+        "power": power,
+        "recommended_sample_size_per_group": int(sample_size)
+    }
