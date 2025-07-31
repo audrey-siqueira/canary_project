@@ -44,6 +44,13 @@ def confirm_rollback():
     print(response.json())
     print()
 
+def power_analysis():
+    print("What is the minimum number of samples we need to collect for both the stable and canary models to give us an 80% chance of detecting a 10ms latency increase?")
+    params = { "effect_size": 0.666, "alpha": 0.05, "power": 0.8}
+    response = requests.get(f"{URL}/admin/power-analysis", params=params)
+    print(response.json())
+    print()
+
 def main():
     deploy_canary()
     generate_traffic()
@@ -53,6 +60,7 @@ def main():
     check_health()
     rollback_canary()
     confirm_rollback()
+    power_analysis()
     print("Test flow complete.")
 
 if __name__ == "__main__":
