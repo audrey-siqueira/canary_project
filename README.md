@@ -29,6 +29,10 @@
    - If performance is acceptable, call `/admin/promote-canary`.
    - If degraded, call `/admin/rollback-canary`.
 
+7. **Bonus: Power Analysis (Sample Size Estimation):**
+   - Use /admin/power-analysis endpoint to estimate the minimum number of latency samples needed to detect a given performance degradation with desired confidence and statistical power.
+   - This helps determine how much traffic must be collected to reliably detect a slowdown (e.g., detecting a 10ms latency increase with 80% power and 5% significance level).
+
 
 ---
 
@@ -101,3 +105,5 @@ canary_project/
    #7) Roll back the canary if needed
    
    #8) Confirm rollback with a new prediction
+
+   #Bonus Question) Run power analysis to estimate required sample size (/admin/power-analysis)
